@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-card {
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    height: 90%;
+    background-color: blue;
+    border-radius: 20px;
+}
+
+.settings {
+    height: 100%;
+    width: 400px;
+    background-color: red;
+    border-radius: 20px;
+}
+}
