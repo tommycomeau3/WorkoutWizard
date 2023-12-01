@@ -11,35 +11,35 @@
         <div class="main-card">
             <div class="settings">
                 <form>
-                    <div class="name">
+                    <div class="name spec">
                         <label>Name:</label>     
                         <input type="text" id="user-name" name="user-name">
                     </div>
 
-                    <div class="level">
+                    <div class="level spec">
                         <label>Current Fitness Level:</label>
                         <ul class="level-options">
                             <li>
+                                <input type="radio" name="level">
                                 <label>Beginner</label>
-                                <input type="radio" name="level">
                             </li>
                             <li>
+                                <input type="radio" name="level">
                                 <label>Intermediate</label>
-                                <input type="radio" name="level">
                             </li>
                             <li>
-                                <label>Advanced</label>
                                 <input type="radio" name="level">
+                                <label>Advanced</label>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="duration">
+                    <div class="duration spec">
                         <label for="workoutDuration">Workout Duration (minutes):</label>
                         <input type="number" id="workoutDuration" name="workoutDuration" min="10" max="120" required>
                     </div>
 
-                    <div class="muscles">
+                    <div class="muscles spec">
                         <label>Targeted Muscles (1-2):</label>
                         <ul>
                             <li>
@@ -89,7 +89,7 @@
                         </ul>
                     </div>
 
-                    <div class="exercise">
+                    <div class="exercise spec">
                         <label for="exercise">Exercise Type:</label>
                         <select id="exercise" name="exercise" required>
                             <option value="" disabled selected>Select Exercise Type</option>
@@ -98,6 +98,12 @@
                           <option value="functional">Functional</option>
                           <option value="hiit">High-intensity interval training (HIIT)</option>
                         </select>
+                    </div>
+
+                    <div class="button">
+                        <a href="/buttons/43" class="btn41-43 btn-43">
+                            Generate Workout
+                        </a>
                     </div>
                 </form>
             </div>
