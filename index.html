@@ -10,11 +10,118 @@
     <div class="main">
         <div class="main-card">
             <div class="settings">
-                <div class="settings-content">
-                    
-                </div>
+                <form>
+                    <div class="name">
+                        <label>Name:</label>     
+                        <input type="text" id="user-name" name="user-name">
+                    </div>
+
+                    <div class="level">
+                        <label>Current Fitness Level:</label>
+                        <ul class="level-options">
+                            <li>
+                                <label>Beginner</label>
+                                <input type="radio" name="level">
+                            </li>
+                            <li>
+                                <label>Intermediate</label>
+                                <input type="radio" name="level">
+                            </li>
+                            <li>
+                                <label>Advanced</label>
+                                <input type="radio" name="level">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="duration">
+                        <label for="workoutDuration">Workout Duration (minutes):</label>
+                        <input type="number" id="workoutDuration" name="workoutDuration" min="10" max="120" required>
+                    </div>
+
+                    <div class="muscles">
+                        <label>Targeted Muscles (1-2):</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="muscleChest" name="muscles" value="chest">
+                                <label for="muscleChest">Chest</label>
+                            </li>
+
+                            <li>
+                                <input type="checkbox" id="muscleBack" name="muscles" value="back">
+                                <label for="muscleBack">Back</label>
+                            </li>
+
+                            <li>
+                                <input type="checkbox" id="muscleShoulders" name="muscles" value="shoulders">
+                                <label for="muscleShoulders">Shoulders</label>    
+                            </li>
+
+                            <li>
+                                <input type="checkbox" id="muscleArms" name="muscles" value="arms">
+                                <label for="muscleArms">Arms</label>    
+                            </li>
+
+                            <li>
+                                <input type="checkbox" id="muscleGlutes" name="muscles" value="glutes">
+                                <label for="muscleGlutes">Glutes</label>    
+                            </li>
+
+                            <li>
+                                <input type="checkbox" id="muscleLegs" name="muscles" value="legs">
+                                <label for="muscleLegs">Legs</label>    
+                            </li>
+
+                            <li>
+                                <input type="checkbox" id="muscleAbs" name="muscles" value="abs">
+                                <label for="muscleAbs">Abdominals</label>    
+                            </li>
+
+                            <li>
+                                <input type="checkbox" id="muscleLowerBack" name="muscles" value="lowerBack">
+                                <label for="muscleLowerBack">Lower Back</label>  
+                            </li>
+
+                            <li>
+                                <input type="checkbox" id="muscleCardio" name="muscles" value="muscleCardio">
+                                <label for="muscleCardio">Cardio</label>    
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="exercise">
+                        <label for="exercise">Exercise Type:</label>
+                        <select id="exercise" name="exercise" required>
+                            <option value="" disabled selected>Select Exercise Type</option>
+                          <option value="strength">Strength</option>
+                          <option value="hypertrophy">Hypertrophy</option>
+                          <option value="functional">Functional</option>
+                          <option value="hiit">High-intensity interval training (HIIT)</option>
+                        </select>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var checkboxes = document.querySelectorAll('input[name="muscles"]');
+          
+          checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+              var checkedCheckboxes = document.querySelectorAll('input[name="muscles"]:checked');
+              
+              if (checkedCheckboxes.length > 2) {
+                this.checked = false; // Prevent checking more than 2 checkboxes
+              }
+              
+              if (checkedCheckboxes.length < 1) {
+                this.checked = true; // Ensure at least 1 checkbox is checked
+              }
+            });
+          });
+        });
+      </script>
+      
 </body>
 </html>

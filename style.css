@@ -29,4 +29,23 @@
     background-color: red;
     border-radius: 20px;
 }
+
+.level {
+    display: flex;
 }
+
+
+.level ul {
+    list-style: none;
+    margin-left: 20px;
+}
+
+.muscles {
+    display: flex;
+}
+
+.muscles ul {
+    list-style: none;
+    margin-left: 20px;
+}
+    
