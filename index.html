@@ -6,6 +6,7 @@
     <title>WorkoutWizard</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <div class="main">
@@ -110,43 +111,5 @@
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          var checkboxes = document.querySelectorAll('input[name="muscles"]');
-          
-          checkboxes.forEach(function (checkbox) {
-            checkbox.addEventListener('change', function () {
-              var checkedCheckboxes = document.querySelectorAll('input[name="muscles"]:checked');
-              
-              if (checkedCheckboxes.length > 2) {
-                this.checked = false; // Prevent checking more than 2 checkboxes
-              }
-              
-              if (checkedCheckboxes.length < 1) {
-                this.checked = true; // Ensure at least 1 checkbox is checked
-              }
-            });
-          });
-        });
-
-        // Send request to OpenAPI.
-        $.ajax({
-            url: "https://api.openai.com/v1/chat/completions",
-            type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify({
-                "model": "gpt-3.5-turbo",
-                "messages": [{"role": "user", "content": "Say this is a test!"}],
-                "temperature": 0.7
-            }),
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer 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');
-            },
-            success: function(result){
-                console.log(result);
-            }
-        });
-      </script>
-      
 </body>
 </html>
