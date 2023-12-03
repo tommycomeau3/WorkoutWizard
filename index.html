@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorkoutWizard</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="main">
@@ -101,7 +102,7 @@
                     </div>
 
                     <div class="button">
-                        <a href="/buttons/43" class="btn41-43 btn-43">
+                        <a href="#" class="btn41-43 btn-43">
                             Generate Workout
                         </a>
                     </div>
@@ -126,6 +127,24 @@
               }
             });
           });
+        });
+
+        // Send request to OpenAPI.
+        $.ajax({
+            url: "https://api.openai.com/v1/chat/completions",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({
+                "model": "gpt-3.5-turbo",
+                "messages": [{"role": "user", "content": "Say this is a test!"}],
+                "temperature": 0.7
+            }),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer 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');
+            },
+            success: function(result){
+                console.log(result);
+            }
         });
       </script>
       
