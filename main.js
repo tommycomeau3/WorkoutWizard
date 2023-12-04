@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "role": "user",
             "content": `Generate a workout routine for ${userName} with fitness level ${fitnessLevel}, targeting ${selectedMuscles.join(', ')} muscles, lasting ${workoutDuration} minutes, and focusing on ${exerciseType} exercises.`
         };
-
+        
         // Send request to OpenAI API
         $.ajax({
             url: "https://api.openai.com/v1/chat/completions",
@@ -45,15 +45,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 "temperature": 0.7
             }),
             beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer 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');
+                xhr.setRequestHeader('Authorization', 'Bearer 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');
             },
             success: function (result) {
                 console.log(result);
                 // Handle the result as needed (e.g., update the UI with the generated workout)
+
+                displayGeneratedWorkout(result.choices[0].message.content);
             },
             error: function (error) {
                 console.error(error);
             }
         });
     });
+
+    function displayGeneratedWorkout(workoutContent) {
+        // Clear the previous workout content
+        var generatedWorkoutElement = document.getElementById('generatedWorkout');
+        generatedWorkoutElement.innerHTML = '';
+
+        // Update the content of the element with the new generated workout
+        generatedWorkoutElement.innerHTML = `<p>${workoutContent}</p>`;
+    }
 });
