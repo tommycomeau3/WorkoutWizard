@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.btn41-43').addEventListener('click', function (event) {
         event.preventDefault(); // Prevent the default form submission behavior
 
+        showLoadingAnimation();
+        
         // Gather user inputs
         var userName = document.getElementById('user-name').value;
         var fitnessLevel = document.querySelector('input[name="level"]:checked').value;
@@ -31,9 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Construct the message object
         var message = {
             "role": "user",
-            "content": `Generate a workout routine for ${userName} with fitness level ${fitnessLevel}, targeting ${selectedMuscles.join(', ')} muscles, lasting ${workoutDuration} minutes, and focusing on ${exerciseType} exercises.`
+            "content": `Generate a workout routine for ${userName} with fitness level ${fitnessLevel}, targeting ${selectedMuscles.join(', ')} muscles, lasting ${workoutDuration} minutes, and focusing on ${exerciseType} exercises. (Keep response to about 100 words max)`
         };
-        
+
         // Send request to OpenAI API
         $.ajax({
             url: "https://api.openai.com/v1/chat/completions",
@@ -45,19 +47,32 @@ document.addEventListener('DOMContentLoaded', function () {
                 "temperature": 0.7
             }),
             beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer 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');
+                xhr.setRequestHeader('Authorization', 'Bearer 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');
             },
             success: function (result) {
                 console.log(result);
                 // Handle the result as needed (e.g., update the UI with the generated workout)
-
+                hideLoadingAnimation();
                 displayGeneratedWorkout(result.choices[0].message.content);
             },
             error: function (error) {
+                hideLoadingAnimation();
                 console.error(error);
             }
         });
     });
+
+    function showLoadingAnimation() {
+        // Show the loading animation
+        var loadingAnimationElement = document.getElementById('loadingAnimation');
+        loadingAnimationElement.style.display = 'block';
+    }
+
+    function hideLoadingAnimation() {
+        // Hide the loading animation
+        var loadingAnimationElement = document.getElementById('loadingAnimation');
+        loadingAnimationElement.style.display = 'none';
+    }
 
     function displayGeneratedWorkout(workoutContent) {
         // Clear the previous workout content
