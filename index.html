@@ -7,8 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="main.js" defer></script>
+    <script src="https://kit.fontawesome.com/91ced6fe6d.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
+    <header>
+        <div class="title-container">
+            <i class="fa-solid fa-hat-wizard"></i>
+            <div class="title">WorkoutWizard</div>
+        </div>
+        <i class="fa-solid fa-right-to-bracket login"></i>
+    </header>
     <div class="main">
         <div class="main-card">
             <div class="settings">
@@ -22,15 +31,15 @@
                         <label>Current Fitness Level:</label>
                         <ul class="level-options">
                             <li>
-                                <input type="radio" name="level">
+                                <input type="radio" name="level" id="radio">
                                 <label>Beginner</label>
                             </li>
                             <li>
-                                <input type="radio" name="level">
+                                <input type="radio" name="level" id="radio">
                                 <label>Intermediate</label>
                             </li>
                             <li>
-                                <input type="radio" name="level">
+                                <input type="radio" name="level" id="radio">
                                 <label>Advanced</label>
                             </li>
                         </ul>

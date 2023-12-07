@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           });
         });
-      });
+    });
 
     // Add an event listener to the "Generate Workout" button
     document.querySelector('.btn41-43').addEventListener('click', function (event) {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 "temperature": 0.7
             }),
             beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer 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');
+                xhr.setRequestHeader('Authorization', 'Bearer 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');
             },
             success: function (result) {
                 console.log(result);

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Saira+Extra+Condensed:wght@800&display=swap');
 
 * {
     padding: 0;
@@ -9,10 +10,12 @@
 }
 
 .main {
-    height: 100vh;
+    height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
+    margin-top: -20px;
 }
 
 .main-card {
@@ -20,20 +23,20 @@
     justify-content: space-between;
     width: 80%;
     height: 90%;
-    background-color: #22d1ee;
+    background-color: #ff5252;
     border-radius: 20px;
+    border: 10px solid  #ff7b7b;
 }
 
 .settings {
     height: 100%;
     width: 400px;
-    background-color: #3d5af1;
-    border-radius: 20px 0 0 20px;
+    background-color: #ff0000;
+    border-radius: 2.5px 0 0 2.5px;
     padding: 15px;
 }
 
 form {
-    color: white;
     font-family: 'Ubuntu', sans-serif;
     display: flex;
     flex-direction: column;
@@ -58,6 +61,10 @@ form {
 .muscles ul {
     list-style: none;
     margin-left: 20px;
+}
+
+.spec {
+    color: white;
 }
 
 .spec input {
@@ -106,24 +113,24 @@ form {
     height: 100%;
   }
 
-  .message {
+.message {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     width: 65%;
-  }
+}
 
-  .message-content {
+.message-content {
     width: 100%;
     height: 90%;
     margin-right: 25px;
     margin-left: 25px;
     font-family: 'Ubuntu', sans-serif;
-    color: white;
     line-height: 25px;
-  }
+    color: white;
+}
 
-  .loading-animation {
+.loading-animation {
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
     border-radius: 50%;
@@ -131,7 +138,7 @@ form {
     height: 80px;
     animation: spin 1s linear infinite;
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 60%;
     transform: translate(-50%, -50%);
     display: none; /* Initially hide the loading animation */
@@ -140,4 +147,54 @@ form {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+.title-container {
+    display: flex;
+    width: 100%;
+    height: 15vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background-color: white;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    color: #ff0000;
+}
+
+.login {
+    font-size: 30px;
+    padding: 20px;
+    margin-right: 17.5px;
+    background-color: white;
+    border-radius: 50px;
+    color: red;
+    transition: background-color 0.3s; /* Add a smooth transition effect for a better user experience */
+}
+
+.login:hover {
+    background-color: red;
+    color: white
+}
+
+@media (max-width: 1200px) {
+    .message-content {
+        font-size: 12.5px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .message-content {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 600px) {
+    .message-content {
+        font-size: 10px;
+    }
 }
